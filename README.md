@@ -2,7 +2,9 @@
 Repository for CI/CD course labs
 markdown
 # My CI/CD Course Repository
-This repository will be used for CI/CD labs
+This repository will be used for CI/CD labs.
 ## Week 1
 markdown
 ## Branch Practice
+## Week 2
+This week introduces a simple GitHub Actions workflow
