@@ -1,3 +1,4 @@
+yaml
 name: Hello CI
 on:
 push:
