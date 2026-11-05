@@ -2,6 +2,7 @@
 from pathlib import Path
 from datetime import datetime
 
+
 def main():
     output_dir = Path("build")
     output_dir.mkdir(exist_ok=True)
@@ -11,21 +12,21 @@ def main():
     report_contents = [
         "CI/CD Build Report",
         "==================",
-        f"Generated at: {datetime.utcnow().isoformat()} UTC",
+        f"Generated at: {datetime.utcnow().isoformat()}",
         "",
         "Project files:",
         "- src/calculator.py",
         "- tests/test_calculator.py",
         "- .github/workflows/python-tests.yml",
         "- scripts/generate_report.py",
-    "Course Week: Week 4",
-    "Status: Build artifact created successfully."
-]
+        "",
+        "Course Week: Week 4",
         "Status: Build artifact created successfully."
     ]
 
     report_file.write_text("\n".join(report_contents), encoding="utf-8")
     print(f"Report written to {report_file}")
+
 
 if __name__ == "__main__":
     main()
