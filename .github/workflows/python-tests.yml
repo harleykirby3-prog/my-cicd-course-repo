@@ -23,8 +23,10 @@ jobs:
       - name: Install pytest
         run: pip install pytest
 
-      - name: Run tests
-        run: pytest -m pytest
+      - - name: Run tests
+  run: python -m pytest
+  env:
+    PYTHONPATH: ${{ github.workspace }}
 
       - name: Generate build report
         run: python scripts/generate_report.py

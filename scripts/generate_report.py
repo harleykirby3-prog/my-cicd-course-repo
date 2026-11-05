@@ -1,36 +1,29 @@
 
-name: Python Tests and Build Artifact
+from pathlib import Path
+from datetime import datetime
 
-on:
-  push:
-    branches: [ main, week-4-artifact ]
-  pull_request:
-    branches: [ main ]
+def main():
+    output_dir = Path("build")
+    output_dir.mkdir(exist_ok=True)
 
-jobs:
-  test-and-build:
-    runs-on: ubuntu-latest
+    report_file = output_dir / "build_report.txt"
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+    report_contents = [
+        "CI/CD Build Report",
+        "==================",
+        f"Generated at: {datetime.utcnow().isoformat()} UTC",
+        "",
+        "Project files:",
+        "- src/calculator.py",
+        "- tests/test_calculator.py",
+        "- .github/workflows/python-tests.yml",
+        "- scripts/generate_report.py",
+        "",
+        "Status: Build artifact created successfully."
+    ]
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+    report_file.write_text("\n".join(report_contents), encoding="utf-8")
+    print(f"Report written to {report_file}")
 
-      - name: Install pytest
-        run: pip install pytest
-
-      - name: Run tests
-        run: python -m pytest
-
-      - name: Generate build report
-        run: python scripts/generate_report.py
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-report
-          path: build/build_report.txt
+if __name__ == "__main__":
+    main()
