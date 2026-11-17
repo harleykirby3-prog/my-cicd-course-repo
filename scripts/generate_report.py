@@ -1,9 +1,5 @@
 from pathlib import Path
 from datetime import datetime
-VERSION = "v1.0.0"
-def main():
-from pathlib import Path
-from datetime import datetime
 
 VERSION = "v1.0.0"
 
