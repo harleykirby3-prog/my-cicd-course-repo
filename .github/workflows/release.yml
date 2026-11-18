@@ -1,11 +1,14 @@
 name: Release Build
+
 on:
-push:
-tags:
-- 'v*.*.*'
+  push:
+    tags:
+      - 'v*.*.*'
+
 jobs:
-release-build:
-runs-on: ubuntu-latest
+  release-build:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
